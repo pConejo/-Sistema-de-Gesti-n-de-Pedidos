@@ -5,24 +5,21 @@
 package Vista;
 
 import AdministradorPedidos.AdministradorPedido;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Student
  */
-public class FrmGenerador extends javax.swing.JFrame {
+public class MenuPrincipal extends javax.swing.JFrame {
 
     AdministradorPedido list;
 
     /**
-     * Creates new form FrmGenerador
+     * Creates new form MenuPrincipal
      */
-     public FrmGenerador(AdministradorPedido L) {
-        list = L;
-        initComponents();
-    }
-    
-    public FrmGenerador() {
-        list = new AdministradorPedido();
+    public MenuPrincipal() {
+        this.list = new AdministradorPedido();
         initComponents();
     }
 
@@ -36,20 +33,30 @@ public class FrmGenerador extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        cmbTipos = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        btnAtender = new javax.swing.JButton();
         btnGenerar = new javax.swing.JButton();
+        btnPantalla = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmbTipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Plato Principal", "Postre", "Bebida" }));
+        btnAtender.setText("Frm Atencion");
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Tipo");
-
-        btnGenerar.setText("Generar");
+        btnGenerar.setText("Frm Generar");
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarActionPerformed(evt);
+            }
+        });
+
+        btnPantalla.setText("FrmPantalla");
+        btnPantalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPantallaActionPerformed(evt);
             }
         });
 
@@ -58,27 +65,23 @@ public class FrmGenerador extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(btnAtender, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
+                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
+                .addComponent(btnPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbTipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(270, 270, 270)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtender, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,25 +90,46 @@ public class FrmGenerador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPantallaActionPerformed
+        if (!list.getList().isEmpty()) {
+            FrmPantalla frm = new FrmPantalla(list);
+            frm.setVisible(true);
+            this.list = frm.list;
+        }
+
+    }//GEN-LAST:event_btnPantallaActionPerformed
+
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        String tipo = cmbTipos.getSelectedItem().toString();
-        list.generarPedido(tipo);
+        FrmGenerador frm = new FrmGenerador(list);
+        frm.setVisible(true);
+        this.list = frm.list;
 
     }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        if (!list.getList().isEmpty()) {
+            FrmAtencion frm = new FrmAtencion(list);
+            frm.setVisible(true);
+            this.list = frm.list;
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes primero generar un Pedido");
+        }
+
+    }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,28 +148,28 @@ public class FrmGenerador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmGenerador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmGenerador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmGenerador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmGenerador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmGenerador().setVisible(true);
+                new MenuPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnGenerar;
-    private javax.swing.JComboBox<String> cmbTipos;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnPantalla;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
