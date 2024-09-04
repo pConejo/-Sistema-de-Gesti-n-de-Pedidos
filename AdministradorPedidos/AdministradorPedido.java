@@ -36,14 +36,14 @@ public class AdministradorPedido {
         agregar(p);
     }
     
-    public Pedido atender(String tipo){
-        if(tipo.equals(list.poll().getTipo())){
+    public void atender(String tipo){
+        if(tipo.equals(list.peek().getTipo())){
+            list.remove();
             
         }else{
             list.poll();
         }
-        
-        return list.peek();
+
     }
     
     public void agregar(Pedido pedido){
@@ -73,5 +73,11 @@ public class AdministradorPedido {
         
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "AdministradorPedido{" + "list=" + list + '}';
+    }
+    
     
 }

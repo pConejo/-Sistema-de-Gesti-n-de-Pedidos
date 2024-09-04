@@ -109,6 +109,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             FrmPantalla frm = new FrmPantalla(list);
             frm.setVisible(true);
             this.list = frm.list;
+        }else{
+            JOptionPane.showMessageDialog(null, "Genere");
         }
 
     }//GEN-LAST:event_btnPantallaActionPerformed

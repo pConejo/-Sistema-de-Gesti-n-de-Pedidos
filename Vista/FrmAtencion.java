@@ -11,15 +11,17 @@ import AdministradorPedidos.AdministradorPedido;
  * @author Student
  */
 public class FrmAtencion extends javax.swing.JFrame {
+
     AdministradorPedido list;
 
     /**
      * Creates new form FrmAtencion
      */
-     public FrmAtencion(AdministradorPedido L) {
+    public FrmAtencion(AdministradorPedido L) {
         this.list = L;
         initComponents();
     }
+
     public FrmAtencion() {
         list = new AdministradorPedido();
         initComponents();
@@ -73,8 +75,8 @@ public class FrmAtencion extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbTipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addComponent(cmbTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(83, Short.MAX_VALUE))
         );
@@ -85,6 +87,7 @@ public class FrmAtencion extends javax.swing.JFrame {
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         String tipo = cmbTipos.getSelectedItem().toString();
         list.atender(tipo);
+
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
